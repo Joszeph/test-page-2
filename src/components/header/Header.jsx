@@ -1,25 +1,26 @@
 import styles from "./Header.module.scss";
 import classNames from "classnames";
 
-import { Container, Paper, Grid } from "@mui/material";
+import { Container, Paper, Stack } from "@mui/material";
 
-export default function Header(props = { left, right }) {
+export default function Header({ left, right }) {
   return (
     <div className={classNames(styles["header-wrapper"])}>
       <Container maxWidth="lg">
-        <Grid
-          container
-          spacing={0}
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <Grid item xs={2}>
-            <Paper className={classNames(styles.left)}>{props.left}</Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper className={classNames(styles.right)}>{props.right}</Paper>
-          </Grid>
-        </Grid>
+        <Paper className={classNames(styles.paper)}>
+          <Stack
+            direction="row"
+            spacing={12}
+            alignItems="center"
+          >
+            <Container maxWidth="sm" className={classNames(styles.left)}>
+              {left}
+            </Container>
+            <Container maxWidth="sm" className={classNames(styles.right)}>
+              {right}
+            </Container>
+          </Stack>
+        </Paper>
       </Container>
     </div>
   );
