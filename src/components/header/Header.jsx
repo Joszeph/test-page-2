@@ -10,8 +10,8 @@ export default function Header({ left, right }) {
         <Paper className={classNames(styles.paper)}>
           <Stack
             direction="row"
-            spacing={12}
             alignItems="center"
+            spacing={12}   
           >
             <Container maxWidth="sm" className={classNames(styles.left)}>
               {left}

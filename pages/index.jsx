@@ -6,12 +6,18 @@ import Time from "../src/components/time/Time";
 
 export default function Index() {
 
-const left = (<User/>)
-const right =(<><Weather/><Time /></>)
 
   return (
     <>
-      <Header left={left} right={right}/>
+      <Header
+        left={<User />}
+        right={
+          <>
+            <Weather />
+            <Time />
+          </>
+        }
+      />
       <Example />
     </>
   );
