@@ -14,7 +14,6 @@ export default function Copyright() {
             Hi
           </Link>
         </Paper>
-        <Login />
       </Container>
     </div>
   );
