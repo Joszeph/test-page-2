@@ -1,0 +1,22 @@
+@use "../../styles/colors";
+
+.wrapper{
+    margin-left:40%;
+    border-radius:15px;
+    background: linear-gradient(284.07deg, #EC6953 0%, #DF53A8 100%);
+    max-width:803px;  
+    height: 400px;
+}
+
+.progressOne,
+.progressTwo
+{
+    margin-top: 17px;
+}
+
+.tempBtns{
+    color: "white";
+    position: absolute;
+  top: 300px;
+ 
+}

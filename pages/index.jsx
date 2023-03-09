@@ -4,6 +4,7 @@ import User from "../src/components/user/User";
 import Weather from "../src/components/weather/Weather";
 import Time from "../src/components/time/Time";
 import Navigation from "../src/components/navigation/Navigation";
+import Thermostat from "../src/components/thermostat/Thermostat";
 
 export default function Index() {
 
@@ -20,6 +21,7 @@ export default function Index() {
         }
       />
       <Navigation />
+      <Thermostat />
       <Example />
     </>
   );
