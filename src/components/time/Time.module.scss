@@ -1,0 +1,19 @@
+@use "../../styles/colors.scss";
+
+.time-wrapper {
+  background-color: colors.$text_primary;
+}
+
+.title {
+  color: colors.$primary_main;
+  font-weight: 400;
+  font-size: 15.4771px;
+  line-height: 18px;
+}
+
+.time {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 70px;
+}

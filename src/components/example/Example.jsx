@@ -6,6 +6,7 @@ import classNames from "classnames";
 import Login from "../login/Login";
 import User from "../user/User";
 import Weather from "../weather/Weather";
+import Time from "../time/Time";
 
 export default function Copyright() {
   return (
@@ -16,7 +17,7 @@ export default function Copyright() {
             Hi
           </Link>
         </Paper>
-        <Weather />
+       <Time />
       </Container>
     </div>
   );

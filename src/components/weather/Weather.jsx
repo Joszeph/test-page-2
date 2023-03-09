@@ -12,7 +12,7 @@ export default function Weather({ degrees, type }) {
           <Grid item xs={4} container justifyContent="center" alignItems="center">
           <img className={classNames(styles["image"])} src="/images/sunny.svg" alt="" />
           </Grid>
-          <Grid item xs={8} container justifyContent="center" alignItems="center" flexDirection='column'>
+          <Grid item xs={8} container justifyContent="center" alignItems="left" flexDirection='column'>
             <Typography className={classNames(styles["title"])}>Weather</Typography>
             <Typography variant="h1">22°</Typography>
           </Grid>
