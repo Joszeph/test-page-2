@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import { Container, Paper, Grid } from "@mui/material";
 
-export default function Header({ left, right }) {
+export default function Header({ right, left }) {
   return (
     <div className={classNames(styles["header-wrapper"])}>
       <Container maxWidth="lg">
