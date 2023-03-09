@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import { Container, Paper, Grid } from "@mui/material";
 
-export default function Header(props) {
+export default function Header(props = { left, right }) {
   return (
     <div className={classNames(styles["header-wrapper"])}>
       <Container maxWidth="lg">
@@ -14,14 +14,10 @@ export default function Header(props) {
           alignItems="center"
         >
           <Grid item xs={2}>
-            <Paper className={classNames(styles.left)}>
-             {props.left}
-            </Paper>
+            <Paper className={classNames(styles.left)}>{props.left}</Paper>
           </Grid>
           <Grid item xs={4}>
-            <Paper className={classNames(styles.right)}>
-            {props.right}
-            </Paper>
+            <Paper className={classNames(styles.right)}>{props.right}</Paper>
           </Grid>
         </Grid>
       </Container>
