@@ -14,13 +14,13 @@ export default function Header({ left, right }) {
           alignItems="center"
         >
           <Grid item xs={2}>
-            <Paper>
-              <div className={classNames(styles.left)}>{left}</div>
+            <Paper className={classNames(styles.left)}>
+             {left}
             </Paper>
           </Grid>
           <Grid item xs={4}>
-            <Paper>
-              <div className={classNames(styles.right)}>{right}</div>
+            <Paper className={classNames(styles.right)}>
+            {right}
             </Paper>
           </Grid>
         </Grid>
