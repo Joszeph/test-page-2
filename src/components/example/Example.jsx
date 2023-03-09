@@ -17,7 +17,6 @@ export default function Copyright() {
             Hi
           </Link>
         </Paper>
-       <Time />
       </Container>
     </div>
   );

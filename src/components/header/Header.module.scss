@@ -1,0 +1,10 @@
+@use "../../styles/colors.scss";
+
+.header-wrapper {
+  background-color: colors.$text_primary;
+}
+
+.right{
+    display: flex;
+}
+

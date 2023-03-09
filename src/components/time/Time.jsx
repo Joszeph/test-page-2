@@ -5,10 +5,9 @@ import classNames from "classnames";
 import { Container, Typography } from "@mui/material";
 
 export default function Time() {
+  const [time, setTime] = useState(new Date());
 
-const [time, setTime] = useState(new Date())
-
-useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setTime(new Date());
     }, 1000);
@@ -16,12 +15,17 @@ useEffect(() => {
     return () => clearInterval(interval);
   }, []);
 
-
   return (
     <div className={classNames(styles["time-wrapper"])}>
       <Container>
         <Typography className={classNames(styles["title"])}>Time</Typography>
-        <Typography variant="h1" className={classNames(styles["time"])}>{time.toLocaleTimeString()}</Typography>
+        <Typography variant="h1" className={classNames(styles["time"])}>
+          {time.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+          })}
+        </Typography>
       </Container>
     </div>
   );
