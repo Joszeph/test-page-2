@@ -1,0 +1,17 @@
+@use "../../styles/colors.scss";
+
+.weather-wrapper {
+  background-color: colors.$text_primary;
+}
+
+.title {
+  color: colors.$primary_main;
+  font-weight: 400;
+  font-size: 15.4771px;
+  line-height: 18px;
+}
+
+.image {
+  width: 87px;
+  height: auto;
+}

@@ -5,6 +5,7 @@ import styles from "./Example.module.scss";
 import classNames from "classnames";
 import Login from "../login/Login";
 import User from "../user/User";
+import Weather from "../weather/Weather";
 
 export default function Copyright() {
   return (
@@ -15,7 +16,7 @@ export default function Copyright() {
             Hi
           </Link>
         </Paper>
-        <User />
+        <Weather />
       </Container>
     </div>
   );
