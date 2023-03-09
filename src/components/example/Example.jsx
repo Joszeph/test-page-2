@@ -4,6 +4,7 @@ import Link from "../link/Link";
 import styles from "./Example.module.scss";
 import classNames from "classnames";
 import Login from "../login/Login";
+import User from "../user/User";
 
 export default function Copyright() {
   return (
@@ -14,6 +15,7 @@ export default function Copyright() {
             Hi
           </Link>
         </Paper>
+        <User />
       </Container>
     </div>
   );
