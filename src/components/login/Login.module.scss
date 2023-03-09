@@ -1,0 +1,11 @@
+@use '../../styles/colors.scss';
+
+.login-form{
+    display:flex;
+    flex-direction: column;
+    background-color: colors.$text_primary;
+    padding: 38px 35px 35px 31px;
+    border-radius: 15px;
+    gap:15px;
+}
+
