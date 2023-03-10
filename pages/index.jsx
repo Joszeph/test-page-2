@@ -5,6 +5,8 @@ import Weather from "../src/components/weather/Weather";
 import Time from "../src/components/time/Time";
 import Navigation from "../src/components/navigation/Navigation";
 import Thermostat from "../src/components/thermostat/Thermostat";
+import Cameras from "../src/components/cameras/Cameras";
+
 
 export default function Index() {
 
@@ -21,7 +23,7 @@ export default function Index() {
         }
       />
       <Navigation />
-      {/* <Thermostat /> */}
+        <Cameras />
       <Example />
     </>
   );
