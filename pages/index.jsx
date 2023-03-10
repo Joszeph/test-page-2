@@ -21,7 +21,7 @@ export default function Index() {
         }
       />
       <Navigation />
-      <Thermostat />
+      {/* <Thermostat /> */}
       <Example />
     </>
   );
