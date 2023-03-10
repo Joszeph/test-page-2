@@ -1,22 +1,44 @@
 @use "../../styles/colors";
 
-.wrapper{
-    margin-left:40%;
-    border-radius:15px;
-    background: linear-gradient(284.07deg, #EC6953 0%, #DF53A8 100%);
-    max-width:803px;  
-    height: 400px;
+.wrapper {
+  margin-left: 40%;
+  border-radius: 15px;
+  background: linear-gradient(284.07deg, #ec6953 0%, #df53a8 100%);
+  max-width: px;
+  height: 400px;
 }
 
 .progressOne,
-.progressTwo
-{
-    margin-top: 17px;
+.progressTwo {
+  margin-top: 17px;
 }
 
-.tempBtns{
-    color: "white";
-    position: absolute;
+.tempBtns {
+  color: "white";
+  position: absolute;
   top: 300px;
- 
+}
+
+.currentTemp {
+  font-size: 80px !important;
+  font-style: normal;
+  font-weight: 700;
+  color: colors.$text_primary;
+}
+
+.therBtn{
+    color: white !important;
+}
+
+.thermostat{
+    position: relative !important;
+    display: flex;
+    top: 1px !important;
+    left: 104px !important;
+}
+
+.chart{
+    display: flex;
+    justify-content: center;
+    padding: 80px 0 0 0;
 }
