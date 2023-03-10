@@ -7,6 +7,7 @@ import Login from "../login/Login";
 import User from "../user/User";
 import Weather from "../weather/Weather";
 import Time from "../time/Time";
+import Card from "../card/Card";
 
 export default function Copyright() {
   return (
@@ -17,6 +18,7 @@ export default function Copyright() {
             Hi
           </Link>
         </Paper>
+        <Card />
       </Container>
     </div>
   );

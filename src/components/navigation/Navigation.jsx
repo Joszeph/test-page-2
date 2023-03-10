@@ -13,13 +13,10 @@ import {
   MenuItem,
   ListItemIcon,
   Badge,
-  ListItemText
+  ListItemText,
 } from "@mui/material";
-import {
-  HomeOutlined,
-  BedOutlined
-} from "@mui/icons-material";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { HomeOutlined, BedOutlined } from "@mui/icons-material";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import User from "../../components/user/User";
 
@@ -46,7 +43,7 @@ export default function Navigation() {
             size={40}
             hasWelcome={false}
             headingSize="h5"
-            avatar=''
+            avatar=""
           ></User>
           <IconButton id="long-button" onClick={handleClick}>
             <MoreVertIcon />
@@ -68,7 +65,6 @@ export default function Navigation() {
             </MenuItem>
           </Menu>
         </Stack>
-
         <List sx={{ minWidth: "200px" }}>
           {[
             "Apartment",
@@ -115,7 +111,7 @@ export default function Navigation() {
             "Bedroom 3",
             "Bathroom",
             "Toilet",
-            "Patio"
+            "Patio",
           ].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
