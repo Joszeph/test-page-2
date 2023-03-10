@@ -2,55 +2,56 @@ import { useState } from "react";
 import styles from "./Cameras.module.scss";
 import classNames from "classnames";
 
-import { Grid, CardMedia } from "@mui/material";
+import { Grid } from "@mui/material";
 
 import Card from "../card/Card";
 
-export default function Cameras({ cameras, hasButton }) {
-  const [selectedCameraIndex, setSelectedCameraIndex] = useState(0);
+export default function Cameras({ cameras=[], hasButton }) {
 
-  const handleCameraClick = () => {
-    setSelectedCameraIndex(index);
-  };
+    const [activeCard, setActiveCard] = useState(0);
+
+    const wrapperClasses = classNames(styles["cameras-wrapper"], {
+        [styles.compressed]: hasButton,
+      });
 
   return (
     <div className={classNames(styles["cameras-wrapper"])}>
-      <Grid container spacing={2}>
-        {hasButton && (
-          <Grid item xs={12} sm={3}>
-            <Card
-              variant="outlined"
-              className={classNames(styles.addButtonCard)}
-            >
-              <p>+Plus Icon</p>
-            </Card>
-          </Grid>
-        )}
-        <Grid item xs={12} sm={hasButton ? 9 : 12}>
+      <Grid container>
+        <Grid item>
+          <video
+            autoPlay={true}
+            controls
+            className={classNames(styles.bigVideo)}
+            style={{ width: 200, height: 400 }}
+          >
+            <source src={cameras[activeCard]?.videoUrl} />
+          </video>
+        </Grid>
+        <Grid item xs={2}>
           <Grid container spacing={2}>
-            {cameras.map((camera, index) => (
-              <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
-                <Card
-                  variant="outlined"
-                  className={classNames(
-                    styles[
-                      `cameraCard 
-                    ${selectedCameraIndex} === index ? selectedCameraCard : ''
-                  `
-                    ]
-                  )}
-                  onClick={() => handleCameraClick(index)}
+            {cameras.map((camera, index) => {
+              return (
+                <video
+                  key={index}
+                  onClick={() => {
+                    setActiveCard(index);
+                  }}
                 >
-                  <video
-                    component="video"
-                    autoplay
-                    controls
-                  >
-                    <source  src={camera.videoUrl} type="video/mp4"/>
-                  </video>
-                </Card>
-              </Grid>
-            ))}
+                  <source
+                    src={camera.videoUrl}
+                    type="video/mp4"
+                  />
+                </video>
+              );
+            })}
+
+            <Grid item xs={12}>
+              {hasButton ? (
+                <div className={styles.add}>
+                  <Card iconUrl={"/images/plus.svg"} outlined={true} />
+                </div>
+              ) : null}
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
