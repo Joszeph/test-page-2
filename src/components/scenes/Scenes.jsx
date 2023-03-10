@@ -40,7 +40,7 @@ export default function Scenes({
   selected=0
 }) {
   return (
-    <div className={classNames(["scenes-container"])}>
+    <div className={classNames(styles["scenes-container"])}>
       <Grid container columnSpacing={{ xs: 1}}>
         {cards.map((card) => (
           <Grid item xs={3}>
