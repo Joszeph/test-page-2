@@ -17,7 +17,7 @@ export default function Card({ iconUrl = "", outlined = false, onClick }) {
       >
         {iconUrl && (
           <CardContent>
-            <img src="/images/alarm-clock.svg" />
+            <img src={iconUrl} height={120} width={120} />
           </CardContent>
         )}
       </CardEl>
