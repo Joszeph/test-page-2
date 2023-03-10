@@ -43,12 +43,12 @@ export default function Cameras({
                   `])}
                     onClick={() => handleCameraClick(index)}
                 >
-                  <CardMedia
+                  <video
                     component="video"
                     src={camera.videoUrl}
                     autoplay
                     controls
-                  />
+                  ></video>
                 </Card>
               </Grid>
             ))}
