@@ -6,6 +6,7 @@ import Time from "../src/components/time/Time";
 import Navigation from "../src/components/navigation/Navigation";
 import Thermostat from "../src/components/thermostat/Thermostat";
 import Cameras from "../src/components/cameras/Cameras";
+import Energy from "../src/components/energy/Energy";
 
 
 export default function Index() {
@@ -23,7 +24,7 @@ export default function Index() {
         }
       />
       <Navigation />
-        <Cameras />
+        <Energy />
       <Example />
     </>
   );
