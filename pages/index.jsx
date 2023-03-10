@@ -7,7 +7,7 @@ import Navigation from "../src/components/navigation/Navigation";
 import Thermostat from "../src/components/thermostat/Thermostat";
 import Cameras from "../src/components/cameras/Cameras";
 import Energy from "../src/components/energy/Energy";
-
+import Rooms from '../src/components/rooms/Rooms'
 
 export default function Index() {
 
@@ -24,7 +24,7 @@ export default function Index() {
         }
       />
       <Navigation />
-        <Energy />
+      <Rooms />
       <Example />
     </>
   );

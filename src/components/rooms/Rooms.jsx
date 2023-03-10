@@ -6,7 +6,7 @@ import { Grid, Typography } from "@mui/material";
 
 import Card from '../card/Card'
 
-export default function Energy({rooms=[{
+export default function Rooms({rooms=[{
     "name": "Living Room",
     "type": "living-room",
     "id": 1,

@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./Card.module.scss";
 import classNames from "classnames";
 
-import { Card as CardEl, CardContent } from "@mui/material";
+import { Card as CardEl, CardContent, Typography } from "@mui/material";
 
-export default function Card({ iconUrl = "", outlined = false, onClick }) {
+export default function Card({ iconUrl = "", outlined = false, onClick, title }) {
   return (
     <div className={classNames(styles.card)}>
       <CardEl
@@ -18,6 +18,7 @@ export default function Card({ iconUrl = "", outlined = false, onClick }) {
         {iconUrl && (
           <CardContent>
             <img src={iconUrl} height={120} width={120} />
+            {title ? <Typography>{title}</Typography> : ''}
           </CardContent>
         )}
       </CardEl>
