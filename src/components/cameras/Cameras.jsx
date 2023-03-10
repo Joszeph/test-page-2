@@ -10,9 +10,6 @@ export default function Cameras({ cameras=[], hasButton }) {
 
     const [activeCard, setActiveCard] = useState(0);
 
-    const wrapperClasses = classNames(styles["cameras-wrapper"], {
-        [styles.compressed]: hasButton,
-      });
 
   return (
     <div className={classNames(styles["cameras-wrapper"])}>
