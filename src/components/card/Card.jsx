@@ -4,22 +4,22 @@ import classNames from "classnames";
 
 import { Card as CardEl, CardContent } from "@mui/material";
 
-export default function Card({ iconUrl = true, outlined = false }) {
-
-
+export default function Card({ iconUrl = "", outlined = false, onClick }) {
   return (
     <div className={classNames(styles.card)}>
-      <CardEl variant={outlined ? "outlined" : ""} 
-      sx={{
-        border: "3px solid #7441F3", 
-        borderColor: "primary.main", 
-      }}
-      className={classNames(styles.cardEl)}> 
-        {iconUrl ? (
+      <CardEl
+        variant={outlined ? "outlined" : ""}
+        sx={{
+          border: "3px solid #7441F3",
+          borderColor: "primary.main",
+        }}
+        className={classNames(styles.cardEl)}
+      >
+        {iconUrl && (
           <CardContent>
             <img src="/images/alarm-clock.svg" />
           </CardContent>
-        ) : null}
+        )}
       </CardEl>
     </div>
   );
