@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import { Card as CardEl, CardContent, Typography } from "@mui/material";
 
-export default function Card({ iconUrl = "", outlined = false, onClick, title }) {
+export default function Card({ iconUrl = "", outlined = false, onClick, title, variant }) {
   return (
     <div className={classNames(styles.card)}>
       <CardEl

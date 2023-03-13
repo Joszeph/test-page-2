@@ -1,28 +1,21 @@
 import React from "react";
 import styles from "./Devices.module.scss";
 import classNames from "classnames";
-import { Grid } from "@mui/material";
+import { Grid, Chip } from "@mui/material";
 
 import Card from "../card/Card";
 
-export default function Devices({
-  devices = [
-    {
-      title: String,
-      iconUrl: String,
-    },
-  ],
-}) {
+export default function Devices({ devices = [] }) {
   return (
     <div className={classNames(styles["devices-wrapper"])}>
       <Grid container spacing={2} sx={{ width: 750 }}>
-        {devices.map((device, index) => (
-          <Grid item xs={4}>
+        {devices.map((device, i) => (
+          <Grid item xs={4} key={i}>
             <Card
-              variant={{ on, off, offline }}
               title={device.title}
               iconUrl={device.iconUrl}
             />
+             <Chip label="!" color="error" />
           </Grid>
         ))}
       </Grid>
