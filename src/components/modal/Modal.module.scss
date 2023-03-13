@@ -1,0 +1,17 @@
+@use '../../styles/colors.scss';
+
+.dialog-wrapper{
+    background-color: colors.$text_primary;
+    width: auto;
+}
+
+.modal-title{
+    color:colors.$primary_main;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-content{
+    display: flex;
+    justify-content: center;
+}
