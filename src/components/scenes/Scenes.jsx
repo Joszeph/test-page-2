@@ -36,14 +36,28 @@ export default function Scenes({
       roomId: 3,
       userId: 1,
     },
+    {
+      id: 5,
+      name: "Eletctric Switch",
+      iconUrl: "/images/bulb.svg",
+      roomId: 1,
+      userId: 1,
+    },
+    {
+      id: 6,
+      name: "Water Heater",
+      iconUrl: "/images/bulb.svg",
+      roomId: 3,
+      userId: 1,
+    },
   ],
   selected=0
 }) {
   return (
     <div className={classNames(styles["scenes-container"])}>
-      <Grid container columnSpacing={{ xs: 1}}>
+      <Grid container spacing={2} sx={{ width: 750 }}>
         {cards.map((card) => (
-          <Grid item xs={3}>
+          <Grid item xs={4} className={classNames(styles["scenes-cards"])}>
             <Card
               key={card.id}
               iconUrl={card?.iconUrl}

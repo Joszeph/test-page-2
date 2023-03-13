@@ -1,14 +1,31 @@
 @use "../../styles/colors.scss";
 
 .header-wrapper {
-  background-color: colors.$text_primary;
+    background-color: colors.$primary_main;
+    display: flex;
+    height: 224px;
+    width: 100% !important;
+    justify-content: center;
 }
-
-.left{
-    background-color: colors.$text_primary;
-}
-
-.right{
+.paper-wrapper {
     display: flex !important;
+    align-items: center !important;
+    padding: 0px !important;
+    position: absolute;
+    top: 77px;
+    left: 350px;
+    width: 1400px;
+    height: 180px;
 }
-
+.left {
+    display: flex;
+    margin-left: 50px;
+    width: 25%;
+}
+.right {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 75%;
+    margin-left : 10px;
+}

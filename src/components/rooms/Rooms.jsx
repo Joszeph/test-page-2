@@ -43,10 +43,10 @@ export default function Rooms({rooms=[{
   }]}) {
   return (
   <div className={classNames(styles['rooms-wrapper'])}>
-    <Grid container>
+    <Grid container spacing={2} className={classNames(styles['rooms-grid'])}>
         {rooms.map((room)=>(
-            <Grid item xs={12} >
-                <Card {...room}/>
+            <Grid item xs={2} margin="15px">
+                <Card {...room} />
             </Grid>
         ))}
     </Grid>

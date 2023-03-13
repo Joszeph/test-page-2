@@ -5,23 +5,11 @@ import { Container, Paper, Stack } from "@mui/material";
 
 export default function Header({ left, right }) {
   return (
-    <div className={classNames(styles["header-wrapper"])}>
-      <Container maxWidth="lg">
-        <Paper className={classNames(styles.paper)}>
-          <Stack
-            direction="row"
-            alignItems="center"
-            spacing={12}   
-          >
-            <Container maxWidth="sm" className={classNames(styles.left)}>
-              {left}
-            </Container>
-            <Container maxWidth="sm" className={classNames(styles.right)}>
-              {right}
-            </Container>
-          </Stack>
-        </Paper>
-      </Container>
-    </div>
+      <div className={styles['header-wrapper']}>
+            <Paper className={styles['paper-wrapper']}>
+                <div className={styles.left}>{left}</div>
+                <div className={styles.right}>{right}</div>
+            </Paper>
+        </div>
   );
 }

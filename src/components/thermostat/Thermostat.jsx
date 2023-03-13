@@ -27,7 +27,7 @@ export default function Thermostat({
 
   return (
     <div className={classNames(styles["wrapper"])}>
-      <div style={{ marginLeft: "25%" }}>
+      <div style={{ marginLeft: "17%" }}>
         <CircularProgress
           variant="determinate"
           size={433}
