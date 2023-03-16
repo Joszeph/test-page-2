@@ -1,58 +1,70 @@
-import { Grid, Typography } from '@mui/material';
-import styles from './SceneComposer.module.scss';
-import Scenes from './Scenes';
-import { useMemo, useState } from 'react';
+import { Grid, Typography } from "@mui/material";
+import styles from "./SceneComposer.module.scss";
+import Scenes from "./Scenes";
+import { useMemo, useState, useEffect } from "react";
 
-export default function SceneComposer({ devices = [], rooms = [], selected, onScene }) {
-  const [status, setStatus] = useState('off');
+export default function SceneComposer({
+  devices = [],
+  rooms = [],
+  selected,
+  onScene,
+}) {
+  const [roomStates, setRoomStates] = useState({});
 
-  const groupBy = useMemo(() => {
-    let id = 1;
-    const groupedDevices = rooms.map(room => {
-      const sortedCards = devices.filter(device => device?.roomId === room?.id);
-      const cards = [];
-      sortedCards.forEach(device => {
-        cards.push(
-          {
-            ...device,
-            "title": "ON",
-            "id": id++,
-            "status": "on"
-          },
-          {
-            ...device,
-            "title": "OFF",
-            "id": id++,
-            "status": "off"
-          },
-        )
-      })
+  const devicesByRoom = useMemo(
+    () =>
+      rooms.reduce(
+        (acc, room) => ({
+          ...acc,
+          [room.id]: devices.filter((device) => device.roomId === room.id),
+        }),
+        {}
+      ),
+    [devices, rooms]
+  );
 
-      console.log(cards);
-      return {
-        "id": room.id,
-        "name": room.name,
-        "cards": cards,
-      }
-    });
+  const handleDeviceStateChange = (roomId, deviceId, state) => {
+    setRoomStates((prevRoomStates) => ({
+      ...prevRoomStates,
+      [roomId]: {
+        ...prevRoomStates[roomId],
+        [selected]: {
+          ...(prevRoomStates[roomId]?.[selected] || {}),
+          [deviceId]: state,
+        },
+      },
+    }));
+  };
 
-    return groupedDevices
-  }, [devices, rooms]);
-
+  useEffect(() => {
+    setRoomStates({});
+  }, [selected]);
 
   return (
     <div className={styles.wrapper}>
-      <Grid container direction="column" spacing={4} className={styles.container}>
-        {groupBy.map((item, index) => {
-          if (groupBy[index].cards.length) {
-            return (
-              <Grid item key={index}>
-                <Typography variant="h4">{item.name}</Typography>
-                <Scenes cards={item} selected={selected} onScene={onScene} />
-              </Grid>
-            )
-          }
-        })}
+      <Grid container spacing={2}>
+        {rooms.map((room) => (
+          <Grid item xs={12} key={room.id}>
+            <Typography variant="h5" className={styles.roomTitle}>
+              {room.name}
+            </Typography>
+            <Grid container spacing={2}>
+              {devicesByRoom[room.id].map((device) => (
+                <Grid item xs={6} sm={3} key={device.id}>
+                  <Scenes
+                    label={device.name}
+                    on={roomStates[room.id]?.[selected]?.[device.id]}
+                    off={!roomStates[room.id]?.[selected]?.[device.id]}
+                    offline={!roomStates[room.id]?.[selected]?.[device.id]}
+                    onScene={(state) =>
+                      handleDeviceStateChange(room.id, device.id, state)
+                    }
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
+        ))}
       </Grid>
     </div>
   );
