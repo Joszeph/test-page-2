@@ -3,6 +3,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Link from "../../src/components/link/Link";
+import SceneComposer from "../../src/components/scenes/SceneComposer";
 
 
 export default function About() {
@@ -15,6 +16,7 @@ export default function About() {
           </Button>
         </Grid>
       </Grid>
+      <SceneComposer />
     </Container>
    
   );
