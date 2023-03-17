@@ -1,51 +1,73 @@
-import { Grid, Typography } from "@mui/material";
-import styles from "./SceneComposer.module.scss";
-import Scenes from "./Scenes";
 import { useMemo, useState, useEffect } from "react";
 
-export default function SceneComposer({ devices, rooms, selected, onScene }) {
-  // Use useMemo to group devices by room
-  const devicesByRoom = useMemo(() => {
-    const grouped = {};
+import styles from "./SceneComposer.module.scss";
+import classNames from "classnames";
+import Scenes from "./Scenes";
 
-    devices.forEach(device => {
-      if (!grouped[device.roomId]) {
-        grouped[device.roomId] = [];
-      }
+import { Grid, Typography } from "@mui/material";
 
-      grouped[device.roomId].push(device);
-    });
+export default function SceneComposer({
+  devices = [],
+  rooms = [],
+  selected,
+  onScene,
+}) {
+  const [roomStates, setRoomStates] = useState({});
 
-    return grouped;
-  }, [devices]);
+  const devicesByRoom = useMemo(
+    () =>
+      rooms.reduce(
+        (acc, room) => ({
+          ...acc,
+          [room.id]: devices.filter((device) => device.roomId === room.id),
+        }),
+        {}
+      ),
+    [devices, rooms]
+  );
+
+  const handleDeviceStateChange = (roomId, deviceId, state) => {
+    setRoomStates((prevRoomStates) => ({
+      ...prevRoomStates,
+      [roomId]: {
+        ...prevRoomStates[roomId],
+        [selected]: {
+          ...(prevRoomStates[roomId]?.[selected] || {}),
+          [deviceId]: state,
+        },
+      },
+    }));
+  };
+
+  useEffect(() => {
+    setRoomStates({});
+  }, [selected]);
 
   return (
-    <div className={classNames(styles["wrapper"])}>
+    <div className={styles.wrapper}>
       <Grid container spacing={2}>
-      {Object.entries(devicesByRoom).map(([roomId, devices]) => (
-        <Grid item xs={12} key={roomId}>
-          {/* Display room name */}
-          <Typography variant="h6" gutterBottom>
-            {rooms.find(room => room.id === parseInt(roomId)).name}
-          </Typography>
-
-          {/* Display devices with on/off switch */}
-          <Grid container spacing={2}>
-            {devices.map(device => (
-              <Grid item xs={12} sm={6} key={device.id}>
-                <Scenes
-                  label={device.name}
-                  iconUrl={device.iconUrl}
-                  value={selected[device.id] || 'offline'}
-                  options={['on', 'off']}
-                  onChange={value => onScene(device.id, value)}
-                />
-              </Grid>
-            ))}
+        {rooms.map((room) => (
+          <Grid item xs={12} key={room.id}>
+            <Typography variant="h5" className={styles.roomTitle}>
+              {room.name}
+            </Typography>
+            <Grid container spacing={2}>
+              {devicesByRoom[room.id].map((device) => (
+                <Grid item xs={6} sm={3} key={device.id}>
+                  <Scenes
+                    label={device.name}
+                    on={roomStates[room.id]?.[selected]?.[device.id]}
+                    off={!roomStates[room.id]?.[selected]?.[device.id]}
+                    offline={!roomStates[room.id]?.[selected]?.[device.id]}
+                    onScene={onScene
+                    }
+                  />
+                </Grid>
+              ))}
+            </Grid>
           </Grid>
-        </Grid>
-      ))}
-    </Grid>
+        ))}
+      </Grid>
     </div>
   );
 }
